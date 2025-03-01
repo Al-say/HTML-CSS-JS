@@ -1,0 +1,23 @@
+name: Auto Commit and Push
+
+on:
+  push:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * *'  # 每天UTC 00:00 运行
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Auto Commit
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add .
+        git commit -m "Auto commit by GitHub Actions" || echo "No changes to commit"
+        git push

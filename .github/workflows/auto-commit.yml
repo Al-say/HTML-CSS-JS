@@ -7,12 +7,17 @@ on:
     - cron: '0 0 * * *'  # 每天UTC 00:00 运行
   workflow_dispatch:  # 允许手动触发
 
+permissions:
+  contents: write
+
 jobs:
   auto-commit:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Auto Commit
       run: |

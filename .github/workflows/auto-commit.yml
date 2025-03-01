@@ -1,49 +1,39 @@
-name: GitHub Pages Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [ master ]
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     steps:
-      - name: Debug Info
-        run: |
-          echo "🔍 Workspace: $GITHUB_WORKSPACE"
-          echo "📦 Ref: $GITHUB_REF"
-          echo "📝 SHA: $GITHUB_SHA"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Checkout Repository
-        run: |
-          # 确保工作目录干净
-          rm -rf *
-          # 克隆仓库
-          git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git .
-          # 检查克隆结果
-          ls -la
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Deploy to gh-pages
-        run: |
-          # 配置git
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # 创建新的gh-pages分支
-          git checkout --orphan gh-pages
-          git reset --hard
-          
-          # 添加所有文件
-          git add .
-          git status
-          
-          # 提交更改
-          git commit -m "Deploy to GitHub Pages"
-          
-          # 推送到gh-pages分支
-          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git gh-pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3

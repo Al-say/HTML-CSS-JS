@@ -1,67 +1,48 @@
-name: GitHub Pages
+name: GitHub Pages Deploy
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   workflow_dispatch:
-    inputs:
-      deploy_message:
-        description: '部署说明'
-        required: false
-        default: '手动部署'
-
-permissions:
-  contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
     steps:
-      - name: Clean workspace
+      - name: Debug Info
         run: |
-          rm -rf *
-          
-      - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_MESSAGE: ${{ github.event.inputs.deploy_message || format('Auto deploy from {0}', github.sha) }}
+          echo "🔍 Workspace: $GITHUB_WORKSPACE"
+          echo "📦 Ref: $GITHUB_REF"
+          echo "📝 SHA: $GITHUB_SHA"
+
+      - name: Checkout Repository
         run: |
           # 确保工作目录干净
-          echo "🚀 开始部署过程..."
-          
+          rm -rf *
           # 克隆仓库
-          echo "📥 克隆仓库..."
-          git clone https://${GITHUB_TOKEN}@github.com/Al-say/HTML-CSS-JS.git .
-          if [ $? -ne 0 ]; then
-            echo "❌ 克隆仓库失败"
-            exit 1
-          fi
-          
-          # 配置Git
-          echo "⚙️ 配置Git..."
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone https://github.com/Al-say/HTML-CSS-JS.git .
+          # 检查克隆结果
+          ls -la
+
+      - name: Deploy to gh-pages
+        run: |
+          # 配置git
           git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # 创建并切换到gh-pages分支
-          echo "🔄 切换到gh-pages分支..."
-          if git show-ref --verify refs/remotes/origin/gh-pages; then
-            git checkout gh-pages
-          else
-            git checkout --orphan gh-pages
-          fi
+          # 创建新的gh-pages分支
+          git checkout --orphan gh-pages
+          git reset --hard
           
-          # 添加所有文件并提交
-          echo "📝 准备提交更改..."
-          git add -A
-          git commit -m "${DEPLOY_MESSAGE}"
+          # 添加所有文件
+          git add .
+          git status
+          
+          # 提交更改
+          git commit -m "Deploy to GitHub Pages"
           
           # 推送到gh-pages分支
-          echo "📤 推送到GitHub Pages..."
-          git push -f origin gh-pages
-          if [ $? -ne 0 ]; then
-            echo "❌ 推送失败"
-            exit 1
-          fi
-          
-          echo "✅ 部署完成!"
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git gh-pages

@@ -13,9 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # 克隆仓库
-          git clone https://github.com/Al-say/HTML-CSS-JS.git .
+          git clone https://${GITHUB_TOKEN}@github.com/Al-say/HTML-CSS-JS.git .
           
           # 配置Git
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"

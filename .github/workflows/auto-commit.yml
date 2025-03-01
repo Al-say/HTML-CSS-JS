@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout repository
         run: |
-          git clone https://github.com/Al-say/HTML-CSS-JS.git .
+          git clone "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git" .
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
       
@@ -29,4 +29,4 @@ jobs:
           git commit -m "Deploy to GitHub Pages"
           
           # 推送到gh-pages分支
-          git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git gh-pages
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git" gh-pages

@@ -12,24 +12,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install gh-pages
-        run: npm install -g gh-pages
-
-      - name: Deploy with gh-pages
+      - name: Checkout repository
         run: |
+          git clone https://github.com/Al-say/HTML-CSS-JS.git .
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          gh-pages -d . -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>" --repo $remote_repo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_ACTOR: ${{ github.actor }}
+      
+      - name: Deploy to gh-pages branch
+        run: |
+          # 创建新的gh-pages分支
+          git checkout --orphan gh-pages
+          git reset --hard
+          
+          # 添加所有文件
+          git add -A
+          git commit -m "Deploy to GitHub Pages"
+          
+          # 推送到gh-pages分支
+          git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git gh-pages

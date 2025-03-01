@@ -5,32 +5,25 @@ on:
     branches: [ master ]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: '.'
+          node-version: '18'
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v3
+      - name: Install gh-pages
+        run: npm install -g gh-pages
+
+      - name: Deploy with gh-pages
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          gh-pages -d . -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

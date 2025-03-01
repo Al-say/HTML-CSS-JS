@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: write
       pages: write
+      id-token: write
     steps:
       - name: Debug Info
         run: |
@@ -23,7 +24,7 @@ jobs:
           # 确保工作目录干净
           rm -rf *
           # 克隆仓库
-          git clone https://github.com/Al-say/HTML-CSS-JS.git .
+          git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/Al-say/HTML-CSS-JS.git .
           # 检查克隆结果
           ls -la
 

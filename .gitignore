@@ -6,13 +6,12 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Node modules
-node_modules/
-
-# Build files
-dist/
-build/
+# Build output
+*.exe
+*.dll
+*.so
+*.dylib
 
 # Temporary files
+*.log
 *.tmp
-*~

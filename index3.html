@@ -2,59 +2,185 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3·8 国际妇女节</title>
     <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #FFC1CC; /* 粉色背景 */
+            background: linear-gradient(135deg, #FFC1CC, #FFB6C1);
+            color: #333;
+            font-family: "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            padding: 20px;
         }
-        @font-face{
-            font-family:jianzhi;
-            src:url('jianzhi.ttf');
+
+        @font-face {
+            font-family: jianzhi;
+            src: url('jianzhi.ttf');
         }
-        body{color:hsl(180, 9%, 98%);}
-        h3{
-            font-family:jianzhi;
-            font-size:24px;
-            text-align:center;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h3 {
+            font-family: jianzhi;
+            font-size: 32px;
+            text-align: center;
             letter-spacing: 10px;
-            text-shadow: 2px 10px 20px  #f00;
+            text-shadow: 2px 4px 8px rgba(255, 0, 0, 0.3);
+            margin-bottom: 20px;
+            color: #FF1493;
+            animation: titleFloat 3s ease-in-out infinite;
         }
-        h4{
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h4 {
             font-family: "楷体";
-            font-size:32px;
-            text-align:center;
+            font-size: 28px;
+            text-align: center;
+            color: #DB7093;
+            margin-bottom: 30px;
+            position: relative;
         }
-        p{line-height: 28px;}
-        .indent{text-indent: 2em;}
-        .space{padding-bottom: 0.5em;}
-        .right{text-align:right;}
+
+        h4::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #DB7093, transparent);
+            margin: 10px auto;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            flex: 0 0 500px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+
         .text-container {
-            max-width: calc(100% - 520px); 
-            margin-left: 20px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .blessings-list {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        .blessings-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blessings-list li:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .blessings-list mark {
+            background: #FFB6C1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .right {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #DB7093;
+            line-height: 1.8;
+        }
+
+        .indent {
+            text-indent: 2em;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .image-container {
+                flex: 0 0 100%;
+            }
+
+            h3 {
+                font-size: 24px;
+                letter-spacing: 5px;
+            }
+
+            h4 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h3>@女生，你不必是一朵花，你可以</h3>
-    <h4>———是折耳根 不必迎合</h4>
-    <hr />
-    <p><strong>"三八"妇女节，致敬每一位了不起的女性</strong></p>
-    <p class="indent">世界因你们而美，社会因你们而和谐。在这个特殊的节日里，祝愿每位女性都能收获爱与尊重，快乐<mark>每一天</mark>。</p>
-    <div class="text-container">
-        <img src="img/3.8.jpg" alt="图片" style="float: left; width: 500px; height: auto;" />
-        <p class="space">
-            <strong>祝福语</strong>
-            <ul style="list-style-type: none; padding-left: 0;">
-                <li>·<mark>1.</mark>致敬每一位奋斗在前线的女性，你们是时代的楷模，国家的骄傲。</li>
-                <li>·<mark>2.</mark>不论角色如何变换，你们都是生活中最美的风景。妇女节快乐，愿你笑得更灿烂，生活更幸福！</li>
-                <li>·<mark>3.</mark>世界因你们而美，社会因你们而和谐。在这个特殊的节日里，祝愿每位女性都能收获爱与尊重，快乐每一天。</li>
-                <li>·<mark>4.</mark>世界因你们而美，社会因你们而和谐。在这个特殊的节日里，祝愿每位女性都能收获爱与尊重，快乐每一天。</li>
-                <li>·<mark>5.</mark>女性，不仅是半边天，更是整个宇宙的光芒。妇女节快乐，让我们一起闪耀吧！</li>
-            </ul>
-           
-        </p>
+    <div class="container">
+        <h3>@女生，你不必是一朵花，你可以</h3>
+        <h4>———是折耳根 不必迎合</h4>
+        <hr />
+        <p><strong>"三八"妇女节，致敬每一位了不起的女性</strong></p>
+        <p class="indent">世界因你们而美，社会因你们而和谐。在这个特殊的节日里，祝愿每位女性都能收获爱与尊重，快乐<mark>每一天</mark>。</p>
+        
+        <div class="main-content">
+            <div class="image-container">
+                <img src="img/3.8.jpg" alt="三八妇女节" />
+            </div>
+            <div class="text-container">
+                <strong>祝福语</strong>
+                <ul class="blessings-list">
+                    <li>·<mark>1</mark> 致敬每一位奋斗在前线的女性，你们是时代的楷模，国家的骄傲。</li>
+                    <li>·<mark>2</mark> 不论角色如何变换，你们都是生活中最美的风景。妇女节快乐，愿你笑得更灿烂，生活更幸福！</li>
+                    <li>·<mark>3</mark> 世界因你们而美，社会因你们而和谐。在这个特殊的节日里，祝愿每位女性都能收获爱与尊重，快乐每一天。</li>
+                    <li>·<mark>4</mark> 致敬每一个努力生活的女性，愿你们永远光芒万丈，活出自己想要的样子。</li>
+                    <li>·<mark>5</mark> 女性，不仅是半边天，更是整个宇宙的光芒。妇女节快乐，让我们一起闪耀吧！</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p class="right">自然生长<br/>𝑯𝒂𝒑𝒑𝒚 𝒈𝒊𝒓𝒍 𝒅𝒂𝒚</p>
     </div>
-    <br />
-    <p class="right">自然生长<br/>𝑯𝒂𝒑𝒑𝒚 𝒈𝒊𝒓𝒍 𝒅𝒂𝒚</p>
 </body>
 </html>

@@ -34,6 +34,38 @@
             backdrop-filter: blur(10px);
         }
 
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 10px;
+            color: #DB7093;
+            text-decoration: none;
+            background: white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav a:hover {
+            background: #FF69B4;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .nav a.current {
+            background: #DB7093;
+            color: white;
+        }
+
         h3 {
             font-family: jianzhi;
             font-size: 32px;
@@ -157,6 +189,11 @@
     </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="index.html">项目导航</a>
+        <a href="index2.html">妇女节主题1</a>
+        <a href="index3.html" class="current">妇女节主题2</a>
+    </div>
     <div class="container">
         <h3>@女生，你不必是一朵花，你可以</h3>
         <h4>———是折耳根 不必迎合</h4>

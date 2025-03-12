@@ -1,27 +1,63 @@
-// Main JavaScript file for cross-platform functionality
+/**
+ * Main JavaScript file for enhanced functionality and performance
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Add smooth scrolling for better user experience
+    initializeSmoothScrolling();
+    initializeLazyLoading();
+});
+
+function initializeSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
+            try {
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+
+                if (!target) {
+                    console.warn(`Scroll target not found: ${targetId}`);
+                    return;
+                }
+
                 target.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    block: 'start'
                 });
+            } catch (error) {
+                console.error('Error during smooth scroll:', error);
             }
         });
     });
+}
 
-    // Add touch support for mobile devices
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-        card.addEventListener('touchstart', () => {
-            card.style.transform = 'translateY(-5px)';
+function initializeLazyLoading() {
+    // Add lazy loading for images if added in the future
+    if ('loading' in HTMLImageElement.prototype) {
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.loading = 'lazy';
         });
-        card.addEventListener('touchend', () => {
-            card.style.transform = 'translateY(0)';
-        });
+    } else {
+        // Fallback for browsers that don't support native lazy loading
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js';
+        script.async = true;
+        script.onload = () => {
+            const observer = lozad();
+            observer.observe();
+        };
+        document.body.appendChild(script);
+    }
+}
+
+// Add error tracking
+window.addEventListener('error', (e) => {
+    console.error('Global error:', {
+        message: e.message,
+        source: e.filename,
+        line: e.lineno,
+        column: e.colno,
+        error: e.error
     });
 });

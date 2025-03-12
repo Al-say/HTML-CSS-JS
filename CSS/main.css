@@ -108,21 +108,45 @@ a:hover {
 
 @media (max-width: 768px) {
     body {
-        padding: 15px;
+        padding: 10px;
+        font-size: 14px;
     }
 
     .project-list {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .project-card {
+        padding: 15px;
+        font-size: 0.95em;
+    }
+
+    .project-card a {
+        font-size: 1em;
+        max-width: 100%;
+        overflow-wrap: anywhere;
     }
 
     h1 {
         font-size: 1.5em;
-        margin-bottom: 30px;
+        margin: 20px 0;
+    }
+
+    .nav {
+        padding: 10px;
+        margin-bottom: 15px;
     }
 
     .nav a {
-        margin: 5px;
-        padding: 6px 12px;
+        margin: 3px;
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    .description {
+        font-size: 0.85em;
+        margin-top: 8px;
     }
 }
 

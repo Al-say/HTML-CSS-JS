@@ -1,0 +1,65 @@
+/* style_4.css */
+body {
+    font-family: "宋体", SimSun, serif;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+    font-size: 26px;
+    color: #333;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-text {
+    margin-right: 10px;
+    /* 文字与图片的间距 */
+}
+
+.title-image {
+    width: 50px;
+    /* 设置图片宽度 */
+    height: auto;
+    /* 高度自适应 */
+}
+
+.image-container {
+    width: 100%;
+    height: 300px;
+    /* 默认高度 */
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        height: 200px;
+        /* 在小屏幕上降低高度 */
+    }
+}
+
+mark {
+    background-color: yellow;
+    /* 高亮背景颜色 */
+    color: black;
+    /* 高亮文字颜色 */
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.highlight {
+    color: #2e8b57;
+    /* 高亮文字颜色改为更柔和的森林绿 */
+    font-weight: bold;
+    /* 加粗 */
+}

@@ -41,3 +41,11 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# Personal information files
+*实验*.pdf
+*实验*.md
+*实验*.rar
+*实验*.zip
+*朱品赞*
+*2410211124*

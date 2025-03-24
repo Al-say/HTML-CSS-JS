@@ -1,0 +1,19 @@
+:root {
+    font-family: "楷体";
+}
+
+h3:before {
+    content: url('../img/title_bg.png');
+}
+
+p:nth-of-type(odd) {
+    color: aquamarine;
+}
+
+p:nth-of-type(even) {
+    color: blanchedalmond;
+}
+
+p:before {
+    content: url('../img/icon.png');
+}

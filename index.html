@@ -5,9 +5,74 @@
     <meta charset="utf-8">
     <title>二十四节气——春分</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <style>
+        .nav {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav a:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .nav a.current {
+            background: #e0e0e0;
+        }
+
+        .github-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        .github-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: #2b3137;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="nav">
+        <a href="index.html" class="current">春分主题</a>
+        <a href="index2.html">妇女节主题1</a>
+        <a href="index3.html">妇女节主题2</a>
+    </div>
+
+    <div class="github-section">
+        <a href="https://github.com/user/HTML-CSS-JS" class="github-link">
+            在 GitHub 上查看项目
+        </a>
+    </div>
+
     <header>
         <h1>
             <span class="title-text">春分</span>

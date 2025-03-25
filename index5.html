@@ -5,9 +5,45 @@
     <meta charset="UTF-8">
     <title>新闻界面</title>
     <link rel="stylesheet" href="CSS/style_5.css">
+    <style>
+        .nav {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav a:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .nav a.current {
+            background: #e0e0e0;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="nav">
+        <a href="index.html">春分主题</a>
+        <a href="index2.html">妇女节主题1</a>
+        <a href="index3.html">妇女节主题2</a>
+        <a href="index5.html" class="current">招聘信息</a>
+    </div>
     <h3>
         招聘信息
     </h3>

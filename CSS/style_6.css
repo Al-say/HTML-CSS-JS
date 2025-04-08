@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f2f5;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+
+h1 i {
+    margin-right: 10px;
+}
+
+.filter {
+    margin-bottom: 30px;
+}
+
+.filter button {
+    padding: 8px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f2f5;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter button.active,
+.filter button:hover {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.music-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.music-item:hover {
+    transform: translateX(10px);
+    background-color: #e8f0fe;
+}
+
+.rank {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a73e8;
+    width: 40px;
+    text-align: center;
+}
+
+.music-cover {
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.music-cover i {
+    color: #666;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.music-cover:hover {
+    background-color: #1a73e8;
+}
+
+.music-cover:hover i {
+    color: white;
+    opacity: 1;
+}
+
+.music-info {
+    flex: 1;
+}
+
+.music-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.music-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.music-stats {
+    display: flex;
+    gap: 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+.music-stats i {
+    margin-right: 5px;
+}
+
+.play-count,
+.like-count {
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .music-stats {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .filter button {
+        margin-bottom: 10px;
+    }
+}

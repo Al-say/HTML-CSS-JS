@@ -1,19 +1,21 @@
-:root {
-    font-family: "楷体";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h3:before {
-    content: url('../img/title_bg.png');
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
-p:nth-of-type(odd) {
-    color: aquamarine;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-p:nth-of-type(even) {
-    color: blanchedalmond;
-}
-
-p:before {
-    content: url('../img/icon.png');
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
 }

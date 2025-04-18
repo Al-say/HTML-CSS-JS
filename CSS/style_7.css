@@ -1,0 +1,65 @@
+body {
+    font-size: 12px;
+    font-family: "宋体";
+    color: #222;
+}
+
+body,
+h2,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.all {
+    width: 1600px;
+    height: auto;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.head {
+    font-size: 60px;
+    color: #fff;
+    height: 120px;
+    line-height: 120px;
+    font-weight: bold;
+    border-bottom: 5px solid #cc5200;
+    background: #f60 url(../img/640.png) no-repeat 180px center;
+    padding: 0 80px 0 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+    padding: 40px 50px;
+    background: #fff5ee;
+    min-height: 400px;
+}
+
+.content li {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    background: url(../img/640.png) no-repeat 20px center;
+    padding-left: 40px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content li a:link,
+.content li a:visited {
+    color: #666;
+    text-decoration: none;
+
+}
+
+.content li a:hover {
+    color: #F60;
+}

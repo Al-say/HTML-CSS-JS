@@ -1,0 +1,80 @@
+body {
+    font-size: 12px;
+    font-family: "宋体";
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#box {
+    width: 660px;
+    height: 600px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: auto;
+}
+
+.header {
+    font-size: 22px;
+    color: #0b0b0b;
+    padding-bottom: 30px;
+}
+
+.header span {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+td {
+    padding-bottom: 26px;
+}
+
+td.left {
+    width: 78px;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.red {
+    color: #F00;
+}
+
+.txt01,
+.txt02 {
+    width: 264px;
+    height: 12px;
+    border: 1px solid #ccc;
+    padding: 3px 3px 3px 26px;
+    font-size: 12px;
+    color: #949494;
+}
+
+.txt01 {
+    background: url(../img/name.png) no-repeat 2px center;
+}
+
+.txt02 {
+    background: url(../img/phone.png) no-repeat 2px center;
+}
+
+.txt03 {
+    width: 122px;
+    height: 12px;
+    border: 1px solid #ccc;
+    padding: 3px 3px 3px 26px;
+    font-size: 12px;
+    background: url(../img/email.png) no-repeat 2px center;
+}
+
+.course {
+    width: 184px;
+}
+
+.message {
+    width: 432px;
+    height: 164px;
+    font-size: 12px;
+    color: #949494;
+    padding: 3px;
+}
